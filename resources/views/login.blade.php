@@ -35,7 +35,7 @@
 			  </p>
 			
 			<button type="submit">Ingresar</button>
-			<a href="#">Olvidaste tu contraseña?</a>
+			<a href="{{route('password.request')}}">Olvidaste tu contraseña?</a>
 		</form>
 		<ul>
 			@foreach ($errors as $error)
