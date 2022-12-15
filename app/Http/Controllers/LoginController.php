@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 use App\Models\Register;
@@ -22,10 +23,19 @@ class LoginController extends Controller
             'password' => ['required', 'string']]); 
         
         $remember = request()->filled('remember'); //Con esta variable activamos o nel la funcion recuerdame
-       
+        $status = DB::table('users')->where('email', $request->email)->value('verificado');
+        //return dd($status);
+
         if ( Auth::attempt($credentials, $remember) ) { //El Auth hace llamado a la base de datos p ver si existe el registro y generar la sesion
-            $request->session()->regenerate(); //Esta linea es para evitar el Session Fixation [Vulnerabilidad]
-            return redirect('inicio'); 
+
+            if ($status == "S" ) { //Si el status es igual a S va a ingresar sino se va a volver a reenviar el correo de confirmacion 
+                $request->session()->regenerate(); //Esta linea es para evitar el Session Fixation [Vulnerabilidad]
+                return redirect('inicio'); 
+            }
+            else {
+                return view('login'); //Aqui vamos a poner lo de reenviar correo 
+            }
+
         } else {
             return view('login');
         }       
