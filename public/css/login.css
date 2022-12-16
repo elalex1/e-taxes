@@ -109,6 +109,12 @@ input {
 	transition: all 0.6s ease-in-out;
 }
 
+.full-container {
+	left: 0;
+	width: 100%;
+	z-index: 2;
+}
+
 .sign-in-container {
 	left: 0;
 	width: 50%;
@@ -250,4 +256,11 @@ footer i {
 footer a {
     color: #3c97bf;
     text-decoration: none;
+}
+
+.full {
+	left: 0;
+	width: 50%;
+	opacity: 0;
+	z-index: 1;
 }

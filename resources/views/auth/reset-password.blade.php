@@ -1,51 +1,69 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-        <form method="POST" action="{{ route('password.update') }}">
-            @csrf
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
 
-            <!-- Password Reset Token -->
-            <input type="hidden" name="token" value="{{ $request->route('token') }}">
+  <body>
 
-            <!-- Email Address -->
-            <div>
-                <x-input-label for="email" :value="__('Email')" />
+   <div class="valign-wrapper" style="width:100%;height:100%;position: absolute;">
+      <div class="valign" style="width:100%;">
+          <div class="container">
+             <div class="row">
+                <div class="col s12 m6 offset-m3">
+                   <div class="card">
+                      <div class="card-content">
+                         <span class="card-title black-text">Sign In</span>
+                         <form method="POST" action="{{ route('password.update') }}">
+                           @csrf
+                           <input type="hidden" name="token" value="{{ $request->route('token') }}">
+                            <div class="row">
+                               <div class="input-field col s12">
+                                  <input type="email" name="email" id="email">
+                                  <label for="email" class="active">Correo</label>
+                               </div>
+                            </div>
+   
+                            <div class="row">
+                               <div class="input-field col s12">
+                                  <input type="password" name="password" id="password">
+                                  <label for="password" class="active">Nueva Contraseña</label>
+                               </div>
+                            </div>
+   
+                            <div class="row">
+                              <div class="input-field col s12">
+                                 <input type="password" name="password_confirmation" id="password_confirmation">
+                                 <label for="password_confirmation" class="active">Confirmar Contraseña</label>
+                              </div>
+                            </div>
+   
+                         
+                      </div>
+                      <div class="card-action">
+                        <button type="submit">Cambiar Contraseña</button>
+                      </div>
+                     </form>
+                   </div>
+                </div>
+             </div>
+          </div>
+      </div>
+   </div>
 
-                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
+      
 
-                <x-input-error :messages="$errors->get('email')" class="mt-2" />
-            </div>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-input-label for="password" :value="__('Password')" />
 
-                <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required />
 
-                <x-input-error :messages="$errors->get('password')" class="mt-2" />
-            </div>
 
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                                    type="password"
-                                    name="password_confirmation" required />
-
-                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-primary-button>
-                    {{ __('Reset Password') }}
-                </x-primary-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
