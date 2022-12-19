@@ -13,7 +13,7 @@
         </div>
     </li>
     <li><a href="#modal6" class="modal-trigger"><i class="material-icons">vpn_key</i>Cambiar Contraseña</a></li>
-    <li><a href="{{ asset('/logout') }}"><i class="material-icons">exit_to_app</i>Cerrar Sesión</a></li>
+    <li><a href="{{ route('Logout') }}"><i class="material-icons">exit_to_app</i>Cerrar Sesión</a></li>
     <li class="title-divider">
         <label class="title-divider-a">Menú</label>
         <div class="divider"></div>

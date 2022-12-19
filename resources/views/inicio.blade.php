@@ -17,8 +17,5 @@
     </div>
   </div>
 
-  <form action=" {{route('Logout')}}" method="post">
-  @csrf
-  <a href="#" onclick="this.closest('form').submit()"> Cerrar Sesion </a>
-  </form>
+  
 @endsection

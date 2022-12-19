@@ -1,8 +1,9 @@
-@extends('layouts.app')
-@section('title','E-Taxes')
-@section('content')
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <link rel="stylesheet" href="css/login.css">
+
+
+
 
 <div class="container" id="container">
 
@@ -67,6 +68,8 @@
 
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 <script>
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
@@ -84,4 +87,3 @@ signInButton.addEventListener('click', () => {
     
             
 
-@endsection

@@ -33,5 +33,5 @@ Route::post('reset-password', [NewPasswordController::class, 'store'])
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/inicio', [LoginController::class, 'inicio'])->name('inicio');
-    Route::post('/logout', [LoginController::class, 'Logout'])->name('Logout');
+    Route::get('/logout', [LoginController::class, 'Logout'])->name('Logout');
 });
