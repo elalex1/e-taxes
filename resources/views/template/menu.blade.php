@@ -2,7 +2,7 @@
     <li>
         <div class="user-view">
            
-            <img href="{{ asset('/inicio') }}" class="responsive-img imgIconPg puntero" src="{{ asset('img/plannersMX1.jpg') }}">
+            <img href="{{ asset('/inicio') }}" class="responsive-img imgIconPg puntero" src="{{ asset('img/taxicon.webp') }}">
             <span class="black-text name">{{ Session::get('name') }}</span>
             <span class="pink-text name">{{ Session::get('email') }}</span>
             <input hidden type="text" name="sessionlifetime" value="{{ Config::get('session.lifetime') }}">
