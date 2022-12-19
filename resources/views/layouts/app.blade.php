@@ -11,40 +11,49 @@
   </head>
 
   <body>
-
-    <div id="loader-wrapper">
-      <div id="loader"></div>
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
-    </div>
-    <!-- End Page Loading -->
+   
+   
+    <!-- Navbar goes here -->
     @section('header')
-    <header class="white">
-      <nav class="white black-text top-nav">
-        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <div class="nav-wrapper" style="padding: 0% 2%;">
-          <h5 >@yield('title')</h5>
-          
+    <nav>
+        <div class="nav-wrapper white">
+            <div class="row">
+                <div class="col s9 offset-s3 black-text">
+                    <h5>@yield('title')</h5>
+                </div>
+            </div>
+           
+          {{--<a href="#" class="brand-logo offset-s4">Logo</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><span>Hola</span></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">JavaScript</a></li>
+          </ul>--}}
         </div>
       </nav>
-      @section('menu')
-          {{--@include('template.menu')--}}
-      @show
-  
-    </header>
     @show
+
+    <!-- Page Layout here -->
+    <div class="row">
+
+        <div class="col s3">
+          <!-- Grey navigation panel -->
+        @section('menu')
+        @include('template.menu')
+        @show
+        </div>
   
+        <div class=" grey lighten-5">
+            @yield('content') 
+        </div>
+
+        <div class="col s9 offset-s3">
+            @include('template.footer')
+        </div>
+        
   
-    <main>
-  
-      <div class="container-main">
-        @yield('content')
       </div>
-    </main>
-  
-    @section('footer')
-      {{--@include('template.footer')--}}
-    @show
+
     <!--JavaScript at end of body for optimized loading-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>M.AutoInit();</script>
