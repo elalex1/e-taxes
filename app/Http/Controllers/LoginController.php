@@ -8,9 +8,15 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 use App\Models\Register;
+use App\Models\UsuariosModel;
 
 class LoginController extends Controller
 {
+    protected $usuariosModel;
+
+    public function __construct(UsuariosModel $UsuariosModel){
+        $this->UsuariosModel = $UsuariosModel;
+    }
 
     public function index(){
         return view('login');
@@ -30,6 +36,16 @@ class LoginController extends Controller
 
             if ($status == "S" ) { //Si el status es igual a S va a ingresar sino se va a volver a reenviar el correo de confirmacion 
                 $request->session()->regenerate(); //Esta linea es para evitar el Session Fixation [Vulnerabilidad]
+
+                
+                $name = DB::table('users')->where('email', $request->email)->value('name');
+                $email = DB::table('users')->where('email', $request->email)->value('email');
+                
+
+                //Almacenamos variables en la sesion==============================
+                session(['name' => $name]);
+                session(['email' => $email]);
+                //================================================================
                 return redirect('inicio'); 
             }
             else {
