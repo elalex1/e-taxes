@@ -1,14 +1,13 @@
 <ul id="slide-out" class="sidenav sidenav-fixed li-ppal-menu">  
     <li>
         <div class="user-view">
-           
             <img href="{{ asset('/inicio') }}" class="responsive-img imgIconPg puntero" src="{{ asset('img/taxicon.webp') }}">
             <span class="black-text name">{{ Session::get('name') }}</span>
             <span class="pink-text name">{{ Session::get('email') }}</span>
             <input hidden type="text" name="sessionlifetime" value="{{ Config::get('session.lifetime') }}">
-            <!-- <span class="black-text email">{{ str_replace('@%', '', Session::get('user')) }}</span> -->
         </div>
     </li>
+
     <li><a href="#modal6" class="modal-trigger"><i class="material-icons">vpn_key</i>Cambiar Contraseña</a></li>
     <li><a href="{{ route('Logout') }}"><i class="material-icons">exit_to_app</i>Cerrar Sesión</a></li>
     <li><a class="modal-trigger" href="#modal1">AgregarEmpresa</a></li>
@@ -17,10 +16,9 @@
         <label class="title-divider-a">Menú</label>
         <div class="divider"></div>
     </li>
-    {{-- <li><a class="subheader ">Menú</a></li> --}}
-        <li class="bold"><a class="waves-effect waves-pink" href="{{ asset('/inicio') }}">Inicio</a></li>
     
-    <li class="bold"><a class="waves-effect waves-pink" href="{{ asset('/requisicion') }}">Requisiciones</a>
+    <li class="bold"><a class="waves-effect waves-pink" href="{{ asset('/inicio') }}">Inicio</a></li>
+    <li class="bold"><a class="waves-effect waves-pink" href="{{ asset('/usuarios') }}">Usuarios</a>
 
 <!-- Modal Structure Cambiar Password-->
 <form id="frm-cambiapassword" class="form-horizontal" method="POST" novalidate="novalidate"
