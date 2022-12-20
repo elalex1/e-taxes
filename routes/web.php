@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\EmpresaController;
 
 //================================================================================================
 //                             Rutas Fuera del Middleware                                       //
@@ -34,4 +35,6 @@ Route::post('reset-password', [NewPasswordController::class, 'store'])
 Route::middleware(['auth'])->group(function () {
     Route::get('/inicio', [LoginController::class, 'inicio'])->name('inicio');
     Route::get('/logout', [LoginController::class, 'Logout'])->name('Logout');
+
+    Route::post('CrearEmpresa', [EmpresaController::class, 'CrearEmpresa'])->name('CrearEmpresa');
 });

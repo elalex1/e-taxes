@@ -11,17 +11,15 @@
     </li>
     <li><a href="#modal6" class="modal-trigger"><i class="material-icons">vpn_key</i>Cambiar Contraseña</a></li>
     <li><a href="{{ route('Logout') }}"><i class="material-icons">exit_to_app</i>Cerrar Sesión</a></li>
+    <li><a class="modal-trigger" href="#modal1">AgregarEmpresa</a></li>
+    
     <li class="title-divider">
         <label class="title-divider-a">Menú</label>
         <div class="divider"></div>
     </li>
     {{-- <li><a class="subheader ">Menú</a></li> --}}
-    @if (Session::get('rol') == 'Administrador')
         <li class="bold"><a class="waves-effect waves-pink" href="{{ asset('/inicio') }}">Inicio</a></li>
-    @else
-        <li class="bold"><a class="waves-effect waves-pink" href="{{ asset('/requisicion') }}">Inicio</a></li>
-    @endif
-
+    
     <li class="bold"><a class="waves-effect waves-pink" href="{{ asset('/requisicion') }}">Requisiciones</a>
 
 <!-- Modal Structure Cambiar Password-->
@@ -65,3 +63,6 @@
         </div>
     </div>
 </form>
+
+{{--Modales---------------------------------------------}}
+@include('modals.CrearEmpresa')

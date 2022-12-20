@@ -29,7 +29,7 @@ class LoginController extends Controller
             'password' => ['required', 'string']]); 
         
         $remember = request()->filled('remember'); //Con esta variable activamos o nel la funcion recuerdame
-        $status = "S";//DB::table('users')->where('email', $request->email)->value('verificado');
+        $status = DB::table('users')->where('email', $request->email)->value('verificado');
         //return dd($status);
 
         if ( Auth::attempt($credentials, $remember) ) { //El Auth hace llamado a la base de datos p ver si existe el registro y generar la sesion
@@ -38,13 +38,13 @@ class LoginController extends Controller
                 $request->session()->regenerate(); //Esta linea es para evitar el Session Fixation [Vulnerabilidad]
 
                 
-                //$name = DB::table('users')->where('email', $request->email)->value('name');
-                //$email = DB::table('users')->where('email', $request->email)->value('email');
+                $name = DB::table('users')->where('email', $request->email)->value('name');
+                $email = DB::table('users')->where('email', $request->email)->value('email');
                 
 
                 //Almacenamos variables en la sesion==============================
-                //session(['name' => $name]);
-                //session(['email' => $email]);
+                session(['name' => $name]);
+                session(['email' => $email]);
                 //================================================================
                 return redirect('inicio'); 
             }
