@@ -40,4 +40,5 @@ Route::middleware(['auth'])->group(function () {
     Route::post('CrearEmpresa', [EmpresaController::class, 'CrearEmpresa'])->name('CrearEmpresa');
 //Usuarios========================================================================================
     Route::get('/usuarios', [UsuariosController::class, 'index'])->name('Usuarios');
+    Route::get('/ExportUsuarios', [UsuariosController::class, 'ExportUsuarios'])->name('ExportUsuarios');
 });

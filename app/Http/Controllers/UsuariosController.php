@@ -19,4 +19,10 @@ class UsuariosController extends Controller
         $usuarios = $this->UsuarioModel->GetUsuarios();
         return view('usuarios.usuarios',['usuarios' => $usuarios]);
     }
+
+    public function ExportUsuarios(){
+
+        $export = $this->UsuarioModel->ExportUsuarios();
+        return $export;
+    }
 }

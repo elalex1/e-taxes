@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Rap2hpoutre\FastExcel\FastExcel;
 
 class UsuarioModel extends Model
 {
@@ -18,6 +19,18 @@ class UsuarioModel extends Model
     }
 
     public function ImportUsuarios(){
+
+    }
+
+    public function ExportUsuarios(){
+
+         return (new FastExcel(UsuarioModel::all()))->download('Usuarios.xlsx', function ($user) {
+            return [
+                'Nombre' => $user->name,
+                'Correo' => $user->email,
+                'Telefono' => $user->phone
+            ];
+        });
 
     }
 }

@@ -24,6 +24,8 @@
                 
             </tbody>
         </table>
+
+        <a href=" {{route('ExportUsuarios')}} " class="btn">Exportar Usuarios</a>
     
 </div>
 @endsection
