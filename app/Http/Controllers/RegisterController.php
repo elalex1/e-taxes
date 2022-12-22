@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+
+use App\Mail\Registro;
 
 class RegisterController extends Controller
 {
@@ -39,8 +42,10 @@ class RegisterController extends Controller
 
         event(new Registered($user));
 
-        Auth::login($user);
-
-        return redirect(RouteServiceProvider::HOME);
+        //Auth::login($user);
+        
+        Mail::to($request->user())->send(new Registro());
+        return back();
+        //return redirect(RouteServiceProvider::HOME);
     }
 }

@@ -29,6 +29,8 @@ Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
 Route::post('reset-password', [NewPasswordController::class, 'store'])
                 ->name('password.update');
 
+Route::get('verificarcorreo', [RegisterController::class, 'VerificarCorreo'])->name('VerificarCorreo');
+
 //===============================================================================================
 //                            Rutas Dentro del Middleware                                      //   
 //===============================================================================================

@@ -40,11 +40,11 @@ class LoginController extends Controller
                 
                 $name = DB::table('users')->where('email', $request->email)->value('name');
                 $email = DB::table('users')->where('email', $request->email)->value('email');
-                
+                $empresa = DB::table('empresas')->where('usuario', $request->email)->value('nombre');
 
                 //Almacenamos variables en la sesion==============================
-                session(['name' => $name]);
-                session(['email' => $email]);
+                session(['name' => $name]); session(['email' => $email]); session(['empresa' => $empresa]); 
+
                 //================================================================
                 return redirect('inicio'); 
             }

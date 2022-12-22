@@ -3,14 +3,15 @@
         <div class="user-view">
             <img href="{{ asset('/inicio') }}" class="responsive-img imgIconPg puntero" src="{{ asset('img/taxicon.webp') }}">
             <span class="black-text name">{{ Session::get('name') }}</span>
-            <span class="pink-text name">{{ Session::get('email') }}</span>
+            <span class="black-text name">{{ Session::get('email') }}</span>
+            <span class="black-text name">{{ Session::get('empresa') }}</span>
             <input hidden type="text" name="sessionlifetime" value="{{ Config::get('session.lifetime') }}">
         </div>
     </li>
 
     <li><a href="#modal6" class="modal-trigger"><i class="material-icons">vpn_key</i>Cambiar Contraseña</a></li>
     <li><a href="{{ route('Logout') }}"><i class="material-icons">exit_to_app</i>Cerrar Sesión</a></li>
-    <li><a class="modal-trigger" href="#modal1">AgregarEmpresa</a></li>
+    <li><a class="modal-trigger" href="#modal1"><i class="material-icons">add</i>AgregarEmpresa</a></li>
     
     <li class="title-divider">
         <label class="title-divider-a">Menú</label>
@@ -63,3 +64,6 @@
 </form>
 
 {{--Modales---------------------------------------------}}
+@push('modals')
+@include('modals.CrearEmpresa')  
+@endpush
