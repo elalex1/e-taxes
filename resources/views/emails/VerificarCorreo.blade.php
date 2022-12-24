@@ -1,15 +1,16 @@
 <x-mail::message>
 # Verifica tu correo
+ 
+Hola! {{$name}} Para continuar verifica tu correo dando click en el siguiente link
 
-<x-mail::panel>
-    Hola para continuar con el proceso de registro solo da click en el siguiente enlace
-</x-mail::panel>
-
-<x-mail::button :url="$url">
-View Order
-</x-mail::button>
+@component('mail::button',['url' => route('VerificarCorreo',$email) ])
+Verificar Correo</a>   
+@endcomponent
 
 
+
+
+ 
 Gracias,<br>
 {{ config('app.name') }}
 </x-mail::message>

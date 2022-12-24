@@ -16,9 +16,11 @@ class EmpresaController extends Controller
 
     public function CrearEmpresa(Request $request){
     
-        $empresa = $this->EmpresaModel->StoreEmpresa($request);
+        //$empresa = $this->EmpresaModel->CreateSchema($request);
+        //$tablas = $this->EmpresaModel->CreateTable($request);
+        $tablas = $this->EmpresaModel->prueba();
 
-        return back();
+        return $tablas;
 
     }
 

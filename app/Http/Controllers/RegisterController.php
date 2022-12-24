@@ -12,7 +12,7 @@ use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
-use App\Mail\Registro;
+use App\Mail\VerificarCorreo;
 
 class RegisterController extends Controller
 {
@@ -44,8 +44,19 @@ class RegisterController extends Controller
 
         //Auth::login($user);
         
-        Mail::to($request->user())->send(new Registro());
+        $name = $request->name;
+        $email = $request->email;
+        //return dd($email);
+        Mail::to($email)
+                ->cc($email)
+                ->send(new VerificarCorreo($name,$email));
+
         return back();
-        //return redirect(RouteServiceProvider::HOME);
+    }
+
+    public function VerificarCorreo($id){
+
+        DB::table('users')->where('email', $id)->update(['verificado' => "S"]);
+        return redirect('inicio');
     }
 }
