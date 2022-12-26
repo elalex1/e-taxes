@@ -16,18 +16,12 @@ Route::get('/', [LoginController::class, 'index'])->name('index')->middleware('g
 
 Route::post('/login', [LoginController::class, 'Login'])->name('Login');
 Route::post('/register', [RegisterController::class, 'Register'])->name('Register');
+//Forgot password=================================================================================
+Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])->name('password.request'); //Hace request de que se olvido el pass
+Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])->name('password.email'); 
+Route::get('reset-password/{token}', [PasswordResetLinkController::class, 'newpassword'])->name('password.reset');
 
-Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
-                ->name('password.request'); //Hace request de que se olvido el pass
-
-Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
-                ->name('password.email');
-
-Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
-                ->name('password.reset');
-
-Route::post('reset-password', [NewPasswordController::class, 'store'])
-                ->name('password.update');
+Route::post('reset-password', [PasswordResetLinkController::class, 'update'])->name('password.update');
 
 Route::get('verificarcorreo{id}', [RegisterController::class, 'VerificarCorreo'])->name('VerificarCorreo');
 

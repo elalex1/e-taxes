@@ -22,14 +22,7 @@
                          <span class="card-title black-text">Sign In</span>
                          <form method="POST" action="{{ route('password.update') }}">
                            @csrf
-                           <input type="hidden" name="token" value="{{ $request->route('token') }}">
-                            <div class="row">
-                               <div class="input-field col s12">
-                                  <input type="email" name="email" id="email">
-                                  <label for="email" class="active">Correo</label>
-                               </div>
-                            </div>
-   
+                           <input type="hidden" name="email" value="{{$email}}">
                             <div class="row">
                                <div class="input-field col s12">
                                   <input type="password" name="password" id="password">

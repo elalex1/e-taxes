@@ -15,15 +15,17 @@ class ForgotPassword extends Mailable
 
     public $name;
     public $email;
+    public $token;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name, $email)
+    public function __construct($name, $email, $token)
     {
         $this->name = $name;
         $this->email = $email;
+        $this->token = $token;
     }
 
     /**

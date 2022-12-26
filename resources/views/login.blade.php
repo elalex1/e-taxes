@@ -11,11 +11,20 @@
 	<div class="form-container sign-up-container">
 		<form action="{{Route('Register')}}" method="post">
 			<h3>Crear Cuenta</h3>
+
+			<div class="row"></div>
 			@csrf
-			<input type="text" placeholder="Nombre" name="name"/>
-			<input type="email" placeholder="Correo" name="email"/>
-            <input type="number" name="phone" id="telefono" placeholder="Telefono">
-			<input type="password" placeholder="Contraseña" name="password" />
+			<label for="nombre">Nombre</label>
+			<input type="text" id="nombre" name="name"/>
+			
+			<label for="email">Correo </label>
+			<input type="email"  id="email" name="email"/>
+			
+			{{--<label for="telefono">Telefono </label>
+            <input type="number"  id="telefono" name="phone" id="telefono" >--}}
+			
+			<label for="contraseña">Contraseña</label>
+			<input type="password" id="contraseña" name="password" />
 
 			<button type="submit">Registrarse</button>
 		</form>
