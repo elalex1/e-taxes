@@ -19,12 +19,12 @@ class RegisterController extends Controller
     public function Register(Request $request)
     {
         
-        /*$request->validate([
+        $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:10'],
+            'phone' => ['string', 'max:10'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);*/
+            'password' => ['required', Rules\Password::defaults()],
+        ]);
 
         $user = User::create([
             'name' => $request->name,
@@ -57,6 +57,6 @@ class RegisterController extends Controller
     public function VerificarCorreo($id){
 
         DB::table('users')->where('email', $id)->update(['verificado' => "S"]);
-        return redirect('inicio');
+        return redirect('inicio')->with('status','Correo Verificado exitosamente!');
     }
 }

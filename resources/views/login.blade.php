@@ -27,6 +27,21 @@
 			<input type="password" id="contraseña" name="password" />
 
 			<button type="submit">Registrarse</button>
+
+			<ul>
+				@foreach ($errors->all() as $error)
+				<li>
+					<span class="red-text">
+						{{ $error }}
+					</span>
+						
+				</li>
+				@endforeach
+			</ul>
+
+			@if (session('status'))
+				<span class="green-text"> {{ session('status') }} </span>
+			@endif
 		</form>
 	</div>
 
@@ -46,11 +61,20 @@
 			
 			<button type="submit">Ingresar</button>
 			<a href="{{route('password.request')}}">Olvidaste tu contraseña?</a>
+			<ul>
+				@foreach ($errors->all() as $error)
+				<li>
+					<span class="red-text">
+						{{ $error }}
+					</span>
+						
+				</li>
+				@endforeach
+			</ul>
+			
 		</form>
 		<ul>
-			@foreach ($errors as $error)
-				<li> {{$error}} </li>
-			@endforeach
+			
 		</ul>
 	</div>
 {{--=========================================================================================--}}

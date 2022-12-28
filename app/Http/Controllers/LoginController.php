@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
+use Illuminate\Validation\ValidationException;
+
 use App\Models\Register;
 use App\Models\UsuariosModel;
 
@@ -53,7 +55,9 @@ class LoginController extends Controller
             }
 
         } else {
-            return view('login');
+            throw ValidationException::withMessages(['email' => 'This value is incorrect']);
+
+            //return view('login');
         }       
     }
 
