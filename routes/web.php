@@ -8,6 +8,12 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\UsuariosController;
 
+use App\Http\Controllers\Ingresos\IngresosController;
+use App\Http\Controllers\Egresos\EgresosController;
+use App\Http\Controllers\Costos\CostosController;
+use App\Http\Controllers\Pagos\PagosController;
+use App\Http\Controllers\Nominas\NominasController;
+
 //================================================================================================
 //                             Rutas Fuera del Middleware                                       //
 //================================================================================================
@@ -38,4 +44,15 @@ Route::middleware(['auth'])->group(function () {
 //Usuarios========================================================================================
     Route::get('/usuarios', [UsuariosController::class, 'index'])->name('Usuarios');
     Route::get('/ExportUsuarios', [UsuariosController::class, 'ExportUsuarios'])->name('ExportUsuarios');
+//Ingresos========================================================================================
+    Route::get('/Ingresos', [IngresosController::class, 'index'])->name('Ingresos');
+//Egresos=========================================================================================
+    Route::get('/Egresos', [EgresosController::class, 'index'])->name('Egresos');
+//Costos Fijos====================================================================================
+    Route::get('/Costos', [CostosController::class, 'index'])->name('Costos');
+//Pagos===========================================================================================
+    Route::get('/Pagos', [PagosController::class, 'index'])->name('Pagos');
+//Nominas=========================================================================================
+    Route::get('/Nominas', [NominasController::class, 'index'])->name('Nominas');
+
 });

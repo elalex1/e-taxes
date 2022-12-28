@@ -1,8 +1,14 @@
 @extends('layouts.app')
 @section('title','inicio')
 @section('content')
+
 <div class="row">
     <div class="col s12 m6">
+      
+                       
+        <h4 id="saludo"></h4>
+           
+
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
           <span class="card-title">Card Title</span>
@@ -17,5 +23,38 @@
     </div>
   </div>
 
-  
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>    
+  <script type="text/javascript">
+    $(document).ready(function() {
+   var hoy = new Date();
+   var hora = hoy.getHours();
+   console.log(hora);
+   var fecha = "";
+   var mensaje= "";
+   nombre = '{{Session::get('empresa_nombre')}}';
+   console.log(nombre);
+   
+   if(hora > 5 && hora<12){
+           var fecha = "Buenos dias";
+           var mensaje= "Es buena momento tomar una taza de cafe para empezar el dia!";
+       }
+       else if (hora > 11 && hora<20){
+           var fecha = "Buenas tardes {{ Session::get('name') }}!";
+           var mensaje= "Como va tu dia?";
+       }
+       else if (hora > 19 && hora<25){
+           var fecha = "Buenas Noches";
+           var mensaje= "Descanza";
+       }
+       else if (hora > -1  && hora<6){
+           var fecha = "Buenas Madrugadas";
+           var mensaje= "Ya duermete ";
+       }
+   
+       document.getElementById('saludo').innerHTML = fecha + " " + nombre;
+       document.getElementById('mensaje').innerHTML = mensaje;
+       
+    });
+   </script>
 @endsection

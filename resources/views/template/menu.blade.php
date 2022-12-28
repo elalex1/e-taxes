@@ -18,8 +18,12 @@
         <div class="divider"></div>
     </li>
     
-    <li class="bold"><a class="waves-effect waves-pink" href="{{ asset('/inicio') }}">Inicio</a></li>
-    <li class="bold"><a class="waves-effect waves-pink" href="{{ asset('/usuarios') }}">Usuarios</a>
+    <li class="bold"><a class="waves-effect" href="{{ asset('/inicio') }}">Inicio</a></li>
+    <li class="bold"><a class="waves-effect" href="{{ asset('/Ingresos') }}">Ingresos</a></li>
+    <li class="bold"><a class="waves-effect" href="{{ asset('/Egresos') }}">Egresos</a></li>
+    <li class="bold"><a class="waves-effect" href="{{ asset('/Costos') }}">Costos Fijos</a></li>
+    <li class="bold"><a class="waves-effect" href="{{ asset('/Pagos') }}">Pagos</a></li>
+    <li class="bold"><a class="waves-effect" href="{{ asset('/Nominas') }}">Nominas</a></li>
 
 <!-- Modal Structure Cambiar Password-->
 <form id="frm-cambiapassword" class="form-horizontal" method="POST" novalidate="novalidate"
