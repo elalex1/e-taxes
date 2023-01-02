@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 use App\Mail\VerificarCorreo;
+use App\Mail\barrido;
+
 
 class RegisterController extends Controller
 {
@@ -32,14 +34,7 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
-        /*DB::table('users')->insert([
-            'name' => $request->email,
-            'email' => $request->email,
-            'password' => Hash::make($request->email) ,
-            'phone' => $request->phone,
-        ]);*/
-
+        
         event(new Registered($user));
 
         //Auth::login($user);
@@ -53,6 +48,8 @@ class RegisterController extends Controller
 
         return back();
     }
+
+   
 
     public function VerificarCorreo($id){
 

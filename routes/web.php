@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\BarridoController;
 
 use App\Http\Controllers\Ingresos\IngresosController;
 use App\Http\Controllers\Egresos\EgresosController;
@@ -26,10 +27,9 @@ Route::post('/register', [RegisterController::class, 'Register'])->name('Registe
 Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])->name('password.request'); //Hace request de que se olvido el pass
 Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])->name('password.email'); 
 Route::get('reset-password/{token}', [PasswordResetLinkController::class, 'newpassword'])->name('password.reset');
-
 Route::post('reset-password', [PasswordResetLinkController::class, 'update'])->name('password.update');
-
 Route::get('verificarcorreo{id}', [RegisterController::class, 'VerificarCorreo'])->name('VerificarCorreo');
+Route::get('barrido{email}', [BarridoController::class, 'Verificado'])->name('Verificado');
 
 
 //===============================================================================================
