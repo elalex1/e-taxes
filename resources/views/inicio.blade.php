@@ -6,78 +6,74 @@
   <h4 id="saludo"></h4>
 
   <div class="col s4">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">Card Title</span>
+    <div class="card ">
+      <div class="card-content">
+        <a class="black-text" href="{{ asset('/Ingresos') }}"><span class="card-title center-align">Ingresos</span></a>
         <p>I am a very simple card. I am good at containing small bits of information.
         I am convenient because I require little markup to use effectively.</p>
       </div>
       <div class="card-action">
-        <a href="#">This is a link</a>
-        <a href="#">This is a link</a>
+        
       </div>
     </div>
   </div>
 
   <div class="col s4">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">Card Title</span>
+    <div class="card">
+      <div class="card-content">
+        <a class="black-text" href="{{ asset('/Egresos') }}"><span class="card-title center-align">Egresos</span></a>
         <p>I am a very simple card. I am good at containing small bits of information.
         I am convenient because I require little markup to use effectively.</p>
       </div>
       <div class="card-action">
-        <a href="#">This is a link</a>
-        <a href="#">This is a link</a>
+        
       </div>
     </div>
   </div>
 
   <div class="col s4">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">Card Title</span>
+    <div class="card ">
+      <div class="card-content">
+        <a class="black-text" href="{{ asset('/Costos') }}"><span class="card-title center-align">Costos Fijos</span></a>
         <p>I am a very simple card. I am good at containing small bits of information.
         I am convenient because I require little markup to use effectively.</p>
       </div>
       <div class="card-action">
-        <a href="#">This is a link</a>
-        <a href="#">This is a link</a>
+        
       </div>
     </div>
   </div>
 
   <div class="col s4">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">Card Title</span>
+    <div class="card ">
+      <div class="card-content">
+        <a class="black-text" href="{{ asset('/Pagos') }}"><span class="card-title center-align">Pagos</span></a>
         <p>I am a very simple card. I am good at containing small bits of information.
         I am convenient because I require little markup to use effectively.</p>
       </div>
       <div class="card-action">
-        <a href="#">This is a link</a>
-        <a href="#">This is a link</a>
+       
       </div>
     </div>
   </div>
 
   <div class="col s4">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">Card Title</span>
+    <div class="card">
+      <div class="card-content">
+        <a class="black-text" href="{{ asset('/Nominas') }}"><span class="card-title center-align">Nominas</span></a>
         <p>I am a very simple card. I am good at containing small bits of information.
         I am convenient because I require little markup to use effectively.</p>
       </div>
       <div class="card-action">
-        <a href="#">This is a link</a>
-        <a href="#">This is a link</a>
+        
       </div>
     </div>
   </div>
 
 </div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>    
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+     
   <script type="text/javascript">
     $(document).ready(function() {
    var hoy = new Date();
