@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Config;
 
 use Illuminate\Validation\ValidationException;
 
@@ -46,7 +47,8 @@ class LoginController extends Controller
 
                 //Almacenamos variables en la sesion==============================
                 session(['name' => $name]); session(['email' => $email]); session(['empresa' => $empresa]); 
-
+                //================================================================
+                $new = Config::set('database.connections.mysql.database', $name);
                 //================================================================
                 return redirect('inicio'); 
             }
